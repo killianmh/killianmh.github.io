@@ -3,7 +3,7 @@ import React from "react";
 import { TweenMax, TimelineMax} from "gsap/TweenMax";
 import ScrollMagic from "scrollmagic";
 
-
+import "./normalize.css"
 import "./styles.css"
 
 import Header from "../Header";
@@ -36,13 +36,14 @@ class App extends React.Component {
             offset: (window.innerHeight / 4)	
         })
         .setClassToggle(".hero", "active")
+        .reverse(false)
         .addTo(this.controller);
     }
 
     render() {
         return (
             <div>
-                <Header />
+                {/* <Header /> */}
                 <Hero />
                 <Projects />
                 <Skills />
