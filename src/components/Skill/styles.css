@@ -6,6 +6,8 @@
     font-size: calc(40px + (120 - 40) * ((100vw - 320px) / (1025 - 320)));
     text-transform: uppercase;
     text-align: center;
+    color: #435058;
+    border-bottom: 20px solid #CD7F32;
 }
 
 .skill.responsive {
