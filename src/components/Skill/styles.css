@@ -1,0 +1,76 @@
+.skill {
+    margin: 0 auto 200px;
+}
+
+.skill .title {
+    font-size: calc(40px + (120 - 40) * ((100vw - 320px) / (1025 - 320)));
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.skill.responsive {
+    position: relative;
+    width: 100%;
+    min-height: 240px;
+}
+
+
+
+@media (min-width: 1025px) {
+    .skill .title {
+        text-align: left;
+    }
+
+    .skill.responsive .title{
+        text-align: center;
+    }
+
+    .skill.css .title{
+        text-align: right;
+    }
+
+    .skill .title {
+        font-size: 120px;  
+    }
+
+    .skill.responsive .inner{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        transition: 0.4s width 0.1s ease-in-out;
+    }
+
+    .skill.responsive .title {
+        font-size: 120px;
+        transition: 0.4s font-size 0.1s ease-in-out;
+    }
+
+    .skill.responsive:hover .title {
+        font-size: 49px;
+    }
+
+    .skill.responsive:hover .inner{
+        width: 40%;
+    }
+
+    .skill.responsive::after {
+        position: absolute;
+        content: "";
+        opacity: 0;
+        top: 0;
+        right: 50%;
+        height: 100%;
+        width: 80%;
+        transform: translateX(50%);
+        border-right: 4px solid #CD7F32;
+        border-left: 4px solid #CD7F32;
+        transition: 0.5s width 0.1s ease-in-out, 0.1s opacity ease-in-out;
+    }
+
+    .skill.responsive:hover::after {
+        opacity: 1;
+        width: 40%;
+    }
+}

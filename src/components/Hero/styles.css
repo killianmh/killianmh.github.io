@@ -1,44 +1,139 @@
 .hero {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
+    margin-bottom: 80px;
     background-color: #353531;
     transition: 1s background-color ease-in-out;
 }
 
-.hero .title {
-    opacity: 0;
-    font-size: 200px;
-    color: #CD7F32;
-    transition: 0.4s opacity ease-in-out;
+@keyframes fadein {
+    0% {
+      opacity: 0 
+    }
+  
+    100% {
+      opacity: 1;
+    }
 }
 
-.hero.active .title {
-    position: relative;
-    opacity: 1;
+.hero .title {
+    font-size: calc(180px + (215 - 180) * ((100vw - 320px) / (1025 - 320)));
+    color: #CD7F32;   
+}
+
+@media (min-width: 1025px) {
+    .hero .title {
+        font-size: 215px;  
+    }
 }
 
 .hero .title h1 {
     position: relative;
     z-index: 2;
+    animation-duration: 2s;
+    animation-name: fadein;
+}
+
+@keyframes scroller {
+    0% {
+      opacity: 0 
+    }
+
+    40% {
+        opacity: 0.5;
+        width: 400px;
+        top: calc(50% + 20px);
+    }
+  
+    100% {
+        top: 80%;
+        width: 80px;
+        opacity: 0.5;
+    }
 }
 
 .hero .title .rectangle {
     position: absolute;
     z-index: 1;
-    top: 50%;
-    right: 0;
-    left: 0;
-    height: 10px;
-    transform: translate(-100%, -50%);
-    background-color: #CDD7D6;
-    opacity: 0;
-    transition: 0.5s transform ease-in-out 1s, 0.5s opacity ease-in-out 1s;
+    top: calc(50% + 20px);
+    width: 400px;
+    right: calc(50%);
+    transform: translate(50%, -50%);
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-name: scroller;
+    animation-fill-mode: forwards;
 }
 
-.hero.active .title .rectangle {
-    transform: translate(0, -50%);
-    opacity: 1;
+@keyframes fadeinout {
+    0% {
+      opacity: 0 
+    }
+  
+    33% {
+        opacity: 1;
+    }
+
+}
+
+.hero .title .rectangle .cascade-part {
+    margin: 0 auto 5px;
+    opacity: 0;
+    height: 10px;
+    background-color: #CDD7D6;
+    border-radius: 5px;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(1){
+    width: 100%;
+    height: 10px;
+    opacity: 0;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-name: scroller;
+    animation-fill-mode: forwards;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(2n){
+    height: 5px;
+    animation-duration: 3s;
+    animation-delay: 5s;
+    animation-name: fadeinout;
+    animation-iteration-count: infinite;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(2n + 3){
+    height: 5px;
+    animation-duration: 3s;
+    animation-delay: 5s;
+    animation-name: fadeinout;
+    animation-iteration-count: infinite;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(2) {
+    width: 80%;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(3) {
+    width: 70%;
+    animation-delay: 5.5s;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(4) {
+    width: 60%;
+    animation-delay: 6s;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(5) {
+    width: 50%;
+    animation-delay: 6.5s;
+}
+
+.hero .title .rectangle .cascade-part:nth-child(6) {
+    width: 40%;
+    animation-delay: 7s;
 }
