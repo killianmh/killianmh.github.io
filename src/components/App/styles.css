@@ -58,5 +58,6 @@ table {
 
 /* fonts */
 body {
-    font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	background-color: rgba(21,21,19,0.1);
 }

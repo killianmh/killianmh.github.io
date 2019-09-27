@@ -1,8 +1,5 @@
 import React from "react";
 
-import { TweenMax, TimelineMax} from "gsap/TweenMax";
-import ScrollMagic from "scrollmagic";
-
 import "./normalize.css"
 import "./styles.css"
 
@@ -16,28 +13,10 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.controller = new ScrollMagic.Controller();
     }
 
     componentDidMount() {
-        new ScrollMagic.Scene({
-            triggerElement: '.hero',
-            triggerHook: 0,
-            duration: "50%",
-            offset: 0	
-        })
-        .setPin(".hero")
-        .addTo(this.controller);
-
-        new ScrollMagic.Scene({
-            triggerElement: '.hero',
-            triggerHook: 0,
-            duration: 0,
-            offset: (window.innerHeight / 4)	
-        })
-        .setClassToggle(".hero", "active")
-        .reverse(false)
-        .addTo(this.controller);
+        
     }
 
     render() {
@@ -45,8 +24,8 @@ class App extends React.Component {
             <div>
                 {/* <Header /> */}
                 <Hero />
-                <Projects />
                 <Skills />
+                <Projects />
                 <Footer />
             </div>
         )

@@ -1,8 +1,13 @@
 import React from "react";
+import "./styles.css"
 
-const Skill = () => (
-    <div>
-        <h1>Skill</h1>
+const Skill = (props) => (
+    <div className={`skill ${props.className}`}>
+        <div className="inner">
+            <div className="title">
+                {props.skill}
+            </div>
+        </div>
     </div>
 )
 
